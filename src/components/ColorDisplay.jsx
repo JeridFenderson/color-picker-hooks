@@ -1,7 +1,6 @@
 import React from 'react'
 
-export function ColorDisplay(props) {
-  const { hue, saturation, lightness, alpha } = props
+export function ColorDisplay({ hue, saturation, lightness, alpha }) {
   return (
     <figure>
       <div

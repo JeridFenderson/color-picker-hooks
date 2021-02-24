@@ -1,7 +1,12 @@
 import React from 'react'
 
-export function ColorSelector(props) {
-  const { hue, saturation, lightness, alpha, changeHSL } = props
+export function ColorSelector({
+  hue,
+  saturation,
+  lightness,
+  alpha,
+  changeHSL,
+}) {
   return (
     <figcaption>
       <ul>
