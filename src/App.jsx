@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { ColorSelector } from './components/ColorSelector'
+import { ColorDisplay } from './components/ColorDisplay'
 
 export function App() {
   const [hue, setHue] = useState(Math.floor(Math.random() * 360))
@@ -6,7 +8,6 @@ export function App() {
   const [lightness, setLightness] = useState(Math.floor(Math.random() * 100))
   const [alpha, setAlpha] = useState(1)
 
-  // @ts-ignore
   const changeHSL = (event, hslPicker) => {
     switch (hslPicker) {
       case 1:
@@ -38,125 +39,19 @@ export function App() {
         <h1>Color Picker</h1>
       </header>
       <main>
-        <figure>
-          <div
-            className="box"
-            style={{
-              backgroundColor: `hsla(${hue},
-                   ${saturation}%,
-                   ${lightness}%,
-                   ${alpha})`,
-            }}
-          >
-            <h2
-              style={{
-                color: `hsl(${hue},
-                 ${saturation}%,
-                 ${lightness}%)`,
-              }}
-            >
-              Sometimes the things that you're searching for has been in front
-              of you the whole time.
-            </h2>
-          </div>
-          <figcaption>
-            <ul>
-              <li>
-                <h3>Hue</h3>
-                <input
-                  type="range"
-                  className="slider"
-                  min="0"
-                  max="360"
-                  value={hue}
-                  onInput={(event) => changeHSL(event, 1)}
-                  style={{
-                    backgroundColor: `hsl(${hue},
-                       100%,
-                       50%)`,
-                  }}
-                />
-                <input
-                  type="text"
-                  className="textBox"
-                  value={hue}
-                  onInput={(event) => changeHSL(event, 1)}
-                />
-                <p>&#176;</p>
-              </li>
-              <li>
-                <h3>Saturation</h3>
-                <input
-                  type="range"
-                  className="slider"
-                  min="0"
-                  max="100"
-                  value={saturation}
-                  onInput={(event) => changeHSL(event, 2)}
-                  style={{
-                    backgroundColor: `hsl(${hue},
-                       ${saturation}%,
-                       50%)`,
-                  }}
-                />
-                <input
-                  type="text"
-                  className="textBox"
-                  value={saturation}
-                  onInput={(event) => changeHSL(event, 2)}
-                />
-                <p>&#37;</p>
-              </li>
-              <li>
-                <h3>Lightness</h3>
-                <input
-                  type="range"
-                  className="slider"
-                  min="0"
-                  max="100"
-                  value={lightness}
-                  onInput={(event) => changeHSL(event, 3)}
-                  style={{
-                    backgroundColor: `hsl(${hue},
-                       0%,
-                       ${lightness}%)`,
-                  }}
-                />
-                <input
-                  type="text"
-                  className="textBox"
-                  value={lightness}
-                  onInput={(event) => changeHSL(event, 3)}
-                />
-                <p>&#37;</p>
-              </li>
-              <li>
-                <h3>Alpha</h3>
-                <input
-                  type="range"
-                  className="slider"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                  value={alpha}
-                  onInput={(event) => changeHSL(event, 4)}
-                  style={{
-                    backgroundColor: `hsla(${hue},
-                       100%,
-                       50%,
-                       ${alpha})`,
-                  }}
-                />
-                <input
-                  type="text"
-                  className="textBox"
-                  value={alpha}
-                  onInput={(event) => changeHSL(event, 4)}
-                />
-              </li>
-            </ul>
-          </figcaption>
-        </figure>
+        <ColorDisplay
+          hue={hue}
+          saturation={saturation}
+          lightness={lightness}
+          alpha={alpha}
+        />
+        <ColorSelector
+          hue={hue}
+          saturation={saturation}
+          lightness={lightness}
+          alpha={alpha}
+          changeHSL={changeHSL}
+        />
       </main>
       <footer>
         <button onClick={randomize}> Color Randomizer</button>
