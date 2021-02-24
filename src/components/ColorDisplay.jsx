@@ -1,22 +1,22 @@
 import React from 'react'
 
-export function ColorDisplay({ hue, saturation, lightness, alpha }) {
+export function ColorDisplay(props) {
   return (
     <figure>
       <div
         className="box"
         style={{
-          backgroundColor: `hsla(${hue},
-               ${saturation}%,
-               ${lightness}%,
-               ${alpha})`,
+          backgroundColor: `hsla(${props.hue},
+               ${props.saturation}%,
+               ${props.lightness}%,
+               ${props.alpha})`,
         }}
       >
         <h2
           style={{
-            color: `hsl(${hue},
-             ${saturation}%,
-             ${lightness}%)`,
+            color: `hsl(${props.hue},
+             ${props.saturation}%,
+             ${props.lightness}%)`,
           }}
         >
           Sometimes the things that you're searching for has been in front of
