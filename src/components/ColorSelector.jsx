@@ -1,6 +1,7 @@
 import React from 'react'
 
 export function ColorSelector(props) {
+  const { hue, saturation, lightness, alpha, changeHSL } = props
   return (
     <figcaption>
       <ul>
@@ -11,10 +12,10 @@ export function ColorSelector(props) {
             className="slider"
             min="0"
             max="360"
-            value={props.hue}
-            onInput={(event) => props.changeHSL(event, 1)}
+            value={hue}
+            onInput={(event) => changeHSL(event, 1)}
             style={{
-              backgroundColor: `hsl(${props.hue},
+              backgroundColor: `hsl(${hue},
                      100%,
                      50%)`,
             }}
@@ -22,8 +23,8 @@ export function ColorSelector(props) {
           <input
             type="text"
             className="textBox"
-            value={props.hue}
-            onInput={(event) => props.changeHSL(event, 1)}
+            value={hue}
+            onInput={(event) => changeHSL(event, 1)}
           />
           <p>&#176;</p>
         </li>
@@ -34,19 +35,19 @@ export function ColorSelector(props) {
             className="slider"
             min="0"
             max="100"
-            value={props.saturation}
-            onInput={(event) => props.changeHSL(event, 2)}
+            value={saturation}
+            onInput={(event) => changeHSL(event, 2)}
             style={{
-              backgroundColor: `hsl(${props.hue},
-                     ${props.saturation}%,
+              backgroundColor: `hsl(${hue},
+                     ${saturation}%,
                      50%)`,
             }}
           />
           <input
             type="text"
             className="textBox"
-            value={props.saturation}
-            onInput={(event) => props.changeHSL(event, 2)}
+            value={saturation}
+            onInput={(event) => changeHSL(event, 2)}
           />
           <p>&#37;</p>
         </li>
@@ -57,19 +58,19 @@ export function ColorSelector(props) {
             className="slider"
             min="0"
             max="100"
-            value={props.lightness}
-            onInput={(event) => props.changeHSL(event, 3)}
+            value={lightness}
+            onInput={(event) => changeHSL(event, 3)}
             style={{
-              backgroundColor: `hsl(${props.hue},
+              backgroundColor: `hsl(${hue},
                      0%,
-                     ${props.lightness}%)`,
+                     ${lightness}%)`,
             }}
           />
           <input
             type="text"
             className="textBox"
-            value={props.lightness}
-            onInput={(event) => props.changeHSL(event, 3)}
+            value={lightness}
+            onInput={(event) => changeHSL(event, 3)}
           />
           <p>&#37;</p>
         </li>
@@ -81,20 +82,20 @@ export function ColorSelector(props) {
             min="0"
             max="1"
             step="0.01"
-            value={props.alpha}
-            onInput={(event) => props.changeHSL(event, 4)}
+            value={alpha}
+            onInput={(event) => changeHSL(event, 4)}
             style={{
-              backgroundColor: `hsla(${props.hue},
+              backgroundColor: `hsla(${hue},
                      100%,
                      50%,
-                     ${props.alpha})`,
+                     ${alpha})`,
             }}
           />
           <input
             type="text"
             className="textBox"
-            value={props.alpha}
-            onInput={(event) => props.changeHSL(event, 4)}
+            value={alpha}
+            onInput={(event) => changeHSL(event, 4)}
           />
         </li>
       </ul>
